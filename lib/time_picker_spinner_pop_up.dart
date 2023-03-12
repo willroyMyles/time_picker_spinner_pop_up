@@ -23,6 +23,8 @@ class TimePickerSpinnerPopUp extends StatefulWidget {
     this.timeFormat,
     this.paddingHorizontal,
     this.timeWidgetBuilder,
+    this.backgroundColor,
+    this.borderColor,
   }) : super(key: key);
 
   final PressType pressType;
@@ -37,6 +39,8 @@ class TimePickerSpinnerPopUp extends StatefulWidget {
   final DateTime? minTime;
   final DateTime? maxTime;
   final String? timeFormat;
+  final Color? backgroundColor;
+  final Color? borderColor;
   final double? paddingHorizontal;
 
   @override
@@ -156,7 +160,9 @@ class _TimePickerSpinnerPopUpState extends State<TimePickerSpinnerPopUp>
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
-                color: Theme.of(context).colorScheme.onSurface, width: 0.5),
+                color: widget.borderColor ??
+                    Theme.of(context).colorScheme.onSurface,
+                width: 0.5),
             borderRadius: BorderRadius.circular(10),
           ),
           padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
@@ -214,7 +220,8 @@ class _TimePickerSpinnerPopUpState extends State<TimePickerSpinnerPopUp>
         Widget menu = Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).colorScheme.surface,
+            color:
+                widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
             boxShadow: [
               BoxShadow(
                 color: const Color(0xFF000000).withOpacity(0.08),
@@ -254,7 +261,8 @@ class _TimePickerSpinnerPopUpState extends State<TimePickerSpinnerPopUp>
                         initialDateTime: _selectedDateTimeSpinner,
                         use24hFormat: true,
                         mode: widget.mode,
-                        backgroundColor: Theme.of(context).colorScheme.surface,
+                        backgroundColor: widget.backgroundColor ??
+                            Theme.of(context).colorScheme.surface,
                         onDateTimeChanged: (dateTime) {
                           _selectedDateTimeSpinner = dateTime;
                         },

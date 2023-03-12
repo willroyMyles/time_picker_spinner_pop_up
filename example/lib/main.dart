@@ -46,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             left: 30,
             top: 60,
             child: TimePickerSpinnerPopUp(
+              backgroundColor: Colors.green,
               mode: CupertinoDatePickerMode.date,
               initTime: DateTime.now(),
               minTime: DateTime.now().subtract(const Duration(days: 10)),
