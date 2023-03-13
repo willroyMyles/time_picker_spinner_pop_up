@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
               minTime: DateTime.now().subtract(const Duration(days: 10)),
               maxTime: DateTime.now().add(const Duration(days: 10)),
               barrierColor: Colors.black12, //Barrier Color when pop up show
+              borderColor: Colors.transparent,
               onChange: (dateTime) {
                 // Implement your logic with select dateTime
               },

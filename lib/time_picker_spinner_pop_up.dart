@@ -25,6 +25,8 @@ class TimePickerSpinnerPopUp extends StatefulWidget {
     this.timeWidgetBuilder,
     this.backgroundColor,
     this.borderColor,
+    this.padding,
+    this.widgetBackgroundColor,
   }) : super(key: key);
 
   final PressType pressType;
@@ -40,8 +42,10 @@ class TimePickerSpinnerPopUp extends StatefulWidget {
   final DateTime? maxTime;
   final String? timeFormat;
   final Color? backgroundColor;
+  final Color? widgetBackgroundColor;
   final Color? borderColor;
   final double? paddingHorizontal;
+  final EdgeInsets? padding;
 
   @override
   _TimePickerSpinnerPopUpState createState() => _TimePickerSpinnerPopUpState();
@@ -159,13 +163,14 @@ class _TimePickerSpinnerPopUpState extends State<TimePickerSpinnerPopUp>
         data: Theme.of(context),
         child: Container(
           decoration: BoxDecoration(
+            color: widget.widgetBackgroundColor,
             border: Border.all(
                 color: widget.borderColor ??
                     Theme.of(context).colorScheme.onSurface,
                 width: 0.5),
             borderRadius: BorderRadius.circular(10),
           ),
-          padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+          padding: widget.padding ?? const EdgeInsets.fromLTRB(12, 10, 12, 10),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
