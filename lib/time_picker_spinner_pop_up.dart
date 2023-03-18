@@ -203,7 +203,7 @@ class _TimePickerSpinnerPopUpState extends State<TimePickerSpinnerPopUp>
         double screenWidth = MediaQuery.of(context).size.width;
         double screenHeight = MediaQuery.of(context).size.height;
 
-        final size = _childBox!.size;
+        const size = Size(120, 100);
         final offset = _childBox!.localToGlobal(const Offset(0, 0));
 
         if (widget.paddingHorizontal != null) {

@@ -57,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Implement your logic with select dateTime
               },
               // Customize your time widget
-              // timeWidgetBuilder: (dateTime) {},
+              timeWidgetBuilder: (dateTime) {
+                return const Text("he");
+              },
 
               // Customize your time format
               // timeFormat: 'dd/MM/yyyy',
